@@ -1,6 +1,6 @@
 const express = require('express');
 const UserController = require('../controller/User')
-//const CidadeController = require('../controller/Cidade')
+const ClinicaController = require('../controller/Clinica')
 
 const routes = express.Router();
 
@@ -17,6 +17,11 @@ routes.get('/user',UserController.index)
 routes.post('/user',UserController.store)
 routes.put('/user',UserController.update)
 routes.delete('/user',UserController.delete)
+
+routes.get('/clinica',ClinicaController.index)
+routes.post('/clinica',ClinicaController.store)
+routes.put('/clinica',ClinicaController.update)
+routes.delete('/clinica',ClinicaController.delete)
 
 //routes.get('/cep',CidadeController)
 
