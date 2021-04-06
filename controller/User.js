@@ -23,7 +23,9 @@ module.exports = {
         user.email = req.body.email;
         user.age = req.body.age;
         user.password = req.body.password;
-        user = await User.updateOne(user);
+        user = await User.updateOne({'_id': req.query.id} , user)
+
+        //user = await User.updateOne(user);
         return res.json({mensagem : 'Atualizar o user ' + id + ' com os dados do post ' + user.nome })
     
     },

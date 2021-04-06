@@ -17,18 +17,19 @@ module.exports = {
     async update(req, res){
         let clinica = req.body;
         clinica.atualizado_em = Date.now();
-        clinica = await Clinica.updateOne({'_id': req.querry.id} , clinica);;
+        clinica = await Clinica.updateOne({'_id': req.query.id},clinica);
         return res.json(clinica);;
     
     },
         
     
-    delete(req,res){
-    var id = req.querry.id;
-    //let clinica = await Clinica.findyById(id);
-    //clinica = await Clinica.deleteOne(clinica);
+    async delete(req,res){
     
-    return res.json(clinica);
-
+        var id = req.query.id;
+        let clinica = await Clinica.findById(id);
+        clinica = await Clinica.deleteOne({'_id': req.query.id} , clinica);
+    
+        return res.json(clinica);
+        
+      }
     }
-}
