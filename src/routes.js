@@ -1,5 +1,4 @@
-const express                 = require('express');
-const UserController          = require('../controller/User')
+routes.post('/user',UserController.store)
 const ClinicaController       = require('../controller/Clinica')
 const EspecialidadeController = require('../controller/Especialidade')
 const MedicoController        = require('../controller/Medico')
